@@ -31,14 +31,6 @@ echo "=== E2E Test ==="
 echo "Deploying..."
 (cd ../.. && npm run clean && npm run build)
 
-echo "Testing c43 drawio..."
-DRAWIO=$(../../../target/release/c43 --drawio container ..)
-[[ "$DRAWIO" == "<mxfile"* ]] || { echo "c43 --drawio produced no drawio"; exit 1; }
-
-echo "Testing clarc (--file - to stdout)..."
-CLARC=$(../../../target/release/clarc --azure --file - < ../../clarc/tests/cases/azure-phase2/input.json)
-[[ "$CLARC" == "<mxfile"* ]] || { echo "clarc produced no drawio"; exit 1; }
-
 npm run deploy || fail
 
 echo "Waiting for services to start..."

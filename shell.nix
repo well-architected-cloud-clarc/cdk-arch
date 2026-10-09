@@ -55,8 +55,6 @@ in pkgs.mkShellNoCC {
     pkgs.fuse-overlayfs  # CoW for images, much faster than default vfs
     pkgs.nodejs
     pkgs.terraform
-    pkgs.rustc
-    pkgs.cargo
     pkgs.drawio-headless
     tea
     moth

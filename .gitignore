@@ -16,9 +16,3 @@ __pycache__/
 
 # drawio backups
 .$*.bkp
-
-# rust
-/target
-
-# rendered diagrams (scripts/render.sh)
-/out
