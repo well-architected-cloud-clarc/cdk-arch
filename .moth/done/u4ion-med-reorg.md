@@ -49,3 +49,9 @@ GitHub repos are created in the org and pushed (explicitly approved). git-filter
 - Known follow-up: the plugin UAT script (claude-plugin/c43/uat/test.sh) still locates a c43 binary at the repo root's target/; it now lives in another repo (C43_BIN override works). Related moths s2dcx, t1yse.
 - Environment: shared setup (gh identity, GIT_AUTHOR/COMMITTER env vars, npm paths, NIXPKGS_ALLOW_UNFREE) lives in an optional parent ~/projects/clarc/.envrc, not committed anywhere. Each repo .envrc is `source_up_if_exists` + `use nix`, so clones work without the identity.
 - Local checkouts live under ~/projects/clarc/.
+
+## Outcome
+- All four repos created public in the org, history split as specified, pushed to main. Pinned Rust revs resolved from GitHub; Cargo.lock for c43 and clarc generated from the real git sources and committed.
+- Validation: cdk-arch `npm run build` + `npm run e2e` green; c43, c43-layout, clarc `cargo test` green (c43 and clarc against the pushed git dependencies, no local override).
+- IDEA.md/README.md for c43, c43-layout, clarc were written by the user after the split (not generated); seeded drafts were superseded.
+- Follow-ups (not part of this task): tag releases and swap git refs for crates.io versions once c43-layout is published; plugin UAT script still assumes a c43 binary in its own target/ (C43_BIN overrides); moths s2dcx/t1yse cover the plugin rework. The old monorepo is kept as is.
