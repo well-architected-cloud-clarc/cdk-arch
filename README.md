@@ -51,20 +51,7 @@ export const api = new ApiContainer(arch, 'Greeting system', {
 So we have an API with two endpoints and a persistent storage for JSON documents.
 Here's a crude C4 system representation:
 
-```mermaid
-C4Context
-    title Hello world system
-
-    Person(user, "A polite person who says hello")
-    Enterprise_Boundary(enterprise, "Hello Inc.") {
-        System(api, "Greeting system")
-        SystemDb(store, "Greeting storage")
-    }
-
-    Rel(user, api, "Uses")
-    Rel(api, store, "Uses")
-
-```
+![hello arch](./media/hello-world-mermaid.png)
 
 Why does it matter, one might ask?
 

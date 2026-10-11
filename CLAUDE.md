@@ -6,6 +6,9 @@ a task cannot be completed before
 - `npm run e2e` from packages/example/local-docker succeeds
 - keep original task description in moth files, append specification-relevant parts
 
+this is a multi-repo setup, each repo having its own set of moth tasks.
+when a task involves a change in the neighbouring repo, the commit message should include `[proj][taskid]` before the message
+
 # for typescript
 
 - use functional style when working with arrays, e.g. instead of for-loops use .map, etc
